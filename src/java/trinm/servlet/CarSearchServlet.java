@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,13 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
-import trinm.tblanswer.TblAnswerDAO;
-import trinm.tblanswer.TblAnswerDTO;
 import trinm.tblcar.TblCarDAO;
 import trinm.tblcar.TblCarDTO;
 import trinm.tblcolor.TblColorDAO;
-import trinm.tblquestion.TblQuestionDAO;
-import trinm.tblquestion.TblQuestionDTO;
 
 /**
  *
@@ -64,27 +59,29 @@ public class CarSearchServlet extends HttpServlet {
                 int num = 0;
                 if (valueSearch == null || valueSearch.equals("")) {
                     dao.loadCar(count);
-                    for (TblCarDTO dto : dao.getCarLoad()) {
-                        TblColorDAO colorDAO = new TblColorDAO();
-                        colorDAO.getColor(dto.getId());
-                        TblCarDTO car = new TblCarDTO(dto.getId(), dto.getName(), dto.getImage(), dto.getPrice(), dto.getQuantity(), dto.getCategory(), colorDAO.getColorLoad());
-                        carList.add(car);
+                    if (dao.getCarLoad() != null) {
+                        for (TblCarDTO dto : dao.getCarLoad()) {
+                            TblColorDAO colorDAO = new TblColorDAO();
+                            colorDAO.getColor(dto.getId());
+                            TblCarDTO car = new TblCarDTO(dto.getId(), dto.getName(), dto.getImage(), dto.getPrice(), dto.getQuantity(), dto.getCategory(), colorDAO.getColorLoad());
+                            carList.add(car);
+                        }
                     }
                 } else {
                     dao.search(count, valueSearch);
-                    for (TblCarDTO dto : dao.getCarLoad()) {
-                        TblColorDAO colorDAO = new TblColorDAO();
-                        colorDAO.getColor(dto.getId());
-                        TblCarDTO car = new TblCarDTO(dto.getId(), dto.getName(), dto.getImage(), dto.getPrice(), dto.getQuantity(), dto.getCategory(), colorDAO.getColorLoad());
-                        carList.add(car);
+                    if (dao.getCarLoad() != null) {
+                        for (TblCarDTO dto : dao.getCarLoad()) {
+                            TblColorDAO colorDAO = new TblColorDAO();
+                            colorDAO.getColor(dto.getId());
+                            TblCarDTO car = new TblCarDTO(dto.getId(), dto.getName(), dto.getImage(), dto.getPrice(), dto.getQuantity(), dto.getCategory(), colorDAO.getColorLoad());
+                            carList.add(car);
+                        }
                     }
                 }
                 num = dao.getNum();
                 session.setAttribute("CARLIST", carList);
                 session.setAttribute("NUM", num);
                 session.setAttribute("SEARCHLAST", valueSearch);
-
-//                List<TblQuizDTO> result = dao.getQuestionList();
             } finally {
                 response.sendRedirect(url);
             }

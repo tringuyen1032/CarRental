@@ -9,6 +9,7 @@ import com.restfb.types.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 import trinm.facebook.RestFacebook;
+import trinm.tblcar.TblCarDAO;
 import trinm.tbluser.SendEmail;
 import trinm.tbluser.TblUserDAO;
 import trinm.tbluser.TblUserHash;
@@ -72,6 +74,11 @@ public class UserLoginServlet extends HttpServlet {
                             boolean role = dao.getRole(username);
                             session.setAttribute("ROLE", role);
                             url = "loadcar";
+                            TblCarDAO carDAO = new TblCarDAO();
+                            carDAO.loadCategory();
+                            List<String> category = carDAO.getCategory();
+                            category.add(0, "All");
+                            session.setAttribute("CATEGORYLIST", category);
                         } else if (result == 0) {// end if check Login is ok
                             session.setAttribute("MSG", "Invalid mail or password. Please try again.");
                         } else {
@@ -101,6 +108,11 @@ public class UserLoginServlet extends HttpServlet {
                         boolean role = dao.getRole(username);
                         session.setAttribute("ROLE", role);
                         url = "loadcar";
+                        TblCarDAO carDAO = new TblCarDAO();
+                        carDAO.loadCategory();
+                        List<String> category = carDAO.getCategory();
+                        category.add(0, "All");
+                        session.setAttribute("CATEGORYLIST", category);
                     } else {// end if check Login is ok
                         session.setAttribute("MSG", "Login facebook fail. Please try again.");
                     }

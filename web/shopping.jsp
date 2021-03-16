@@ -174,6 +174,19 @@
                 margin: 2px;
                 border-radius: 5%;
             } 
+
+            .header_search_status{
+                width:200px;
+                text-align: center;
+                line-height: 11px;
+                border-left: 1px solid #ccc;
+            }
+
+            .header_search_status {
+                position: relative;
+                display: inline-block;
+            }
+
         </style>
     </head>
     <body class="display">
@@ -181,6 +194,7 @@
         <c:set var="role" value="${sessionScope.ROLE}"/>
         <c:set var="count" value="${sessionScope.NUM}"/>
         <c:set var="valueSearch" value="${sessionScope.SEARCHLAST}"/>
+        <c:set var="category" value="${sessionScope.CATEGORYLIST}"/>
         <div class="display-0">
             <header class="display-1">
                 <nav class="display-2">
@@ -199,7 +213,17 @@
                         <form action="search">
                             <div class="header_search">
                                 <input type="text" class="header_search_input" name="txtSeachValue" value="${valueSearch}">
-
+                                <div class="header_search_status">
+                                    <span class="header_search_select_label">
+                                        <div class="list_select"></br>
+                                            <select name="status" id="cars">
+                                                <c:forEach var="list" items="${category}">
+                                                    <option value="${list}">${list}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </span>
+                                </div>
                                 <input type="submit" value="Search" name="btAction" class="header_search_icon"/>
                             </div>
                         </form>
@@ -214,70 +238,77 @@
             </header>
         </div>
         <div class="display-12">
-            <div class="display-8">
-                <table border="1" class="list_foods">
-                    <c:forEach begin="0" end="9" varStatus="pos">
-                        <tr>
-                            <c:forEach var="dto" items="${sessionScope.CARLIST}" varStatus="counter" begin="${(pos.count-1)*2}" end="${(pos.count-1)*2+1}">
-                                <th>
-                                    <div class="display-7">
-                                        <form action="doQuiz">
-                                            <input type="hidden" name="txtSubjectID" value="${dto.id}" />
-                                            <nav class="food_name">
-                                                ${dto.name}
-                                            </nav>
-                                            <nav class="list_border">
-                                                <img class="food_logo" src="image/${dto.image}">
-                                                <nav class="display-10">
-                                                    <nav>
-                                                        Price: ${dto.price} <br>
-                                                        Quantity: ${dto.quantity} <br>
-                                                        Category: ${dto.category} <br>
-                                                        Color: <select name="color" onchange="select(this)" style="font-size: 20px;">
-                                                            <option style="font-size: 20px;">Color</option>
-                                                            <c:forEach var="color" items="${dto.color}">
-                                                                <option value="${color}" style="background-color: ${color}; font-size: 30px;"></option>
-                                                            </c:forEach>
-                                                        </select><br>
-                                                        <script>
-                                                            function select(list) {
-                                                                if (list.value !== 'Color') {
-                                                                    list.style.backgroundColor = list.value;
-                                                                } else {
-                                                                    list.style.backgroundColor = 'white';
+            <c:if test="${not empty sessionScope.CARLIST}">
+                <div class="display-8">
+                    <table border="1" class="list_foods">
+                        <c:forEach begin="0" end="9" varStatus="pos">
+                            <tr>
+                                <c:forEach var="dto" items="${sessionScope.CARLIST}" varStatus="counter" begin="${(pos.count-1)*2}" end="${(pos.count-1)*2+1}">
+                                    <th>
+                                        <div class="display-7">
+                                            <form action="doQuiz">
+                                                <input type="hidden" name="txtSubjectID" value="${dto.id}" />
+                                                <nav class="food_name">
+                                                    ${dto.name}
+                                                </nav>
+                                                <nav class="list_border">
+                                                    <img class="food_logo" src="image/${dto.image}">
+                                                    <nav class="display-10">
+                                                        <nav>
+                                                            Price: ${dto.price} <br>
+                                                            Quantity: ${dto.quantity} <br>
+                                                            Category: ${dto.category} <br>
+                                                            Color: <select name="color" onchange="select(this)" style="font-size: 20px;">
+                                                                <option style="font-size: 20px;">Color</option>
+                                                                <c:forEach var="color" items="${dto.color}">
+                                                                    <option value="${color}" style="background-color: ${color}; font-size: 30px;"></option>
+                                                                </c:forEach>
+                                                            </select><br>
+                                                            <script>
+                                                                function select(list) {
+                                                                    if (list.value !== 'Color') {
+                                                                        list.style.backgroundColor = list.value;
+                                                                    } else {
+                                                                        list.style.backgroundColor = 'white';
+                                                                    }
                                                                 }
-                                                            }
-                                                        </script>
-                                                    </nav>
-                                                    <nav>
-                                                        <div class="display-9">
-                                                            <input class="btn_doquiz" type="submit" value="Rent" />
-                                                        </div>
+                                                            </script>
+                                                        </nav>
+                                                        <nav>
+                                                            <div class="display-9">
+                                                                <input class="btn_doquiz" type="submit" value="Rent" />
+                                                            </div>
+                                                        </nav>
                                                     </nav>
                                                 </nav>
-                                            </nav>
-                                        </form>
-                                    </div>
-                                </th>
-                            </c:forEach>
-                        </tr>
+                                            </form>
+                                        </div>
+                                    </th>
+                                </c:forEach>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+                <div class="display-11">
+                    <c:forEach var="paging" begin="0" end="${(count - 1) / 20}" varStatus="counter">
+                        <form action="search">
+                            <input type="hidden" name="txtSeachValue" value="${valueSearch}" />
+                            <c:if test="${counter.count eq pos}">
+                                <button class="btn_paging" type="submit" value="${counter.count}" disabled="disabled">${counter.count}</button>
+                            </c:if>
+                            <c:if test="${counter.count ne pos}">
+                                <button class="btn_paging" type="submit" value="${counter.count}">${counter.count}</button>
+                            </c:if>
+                            <input type="hidden" name="btnCount" value="${counter.count}" />
+                        </form>
                     </c:forEach>
-                </table>
-            </div>
-            <div class="display-11">
-                <c:forEach var="paging" begin="0" end="${(count - 1) / 20}" varStatus="counter">
-                    <form action="search">
-                        <input type="hidden" name="txtSeachValue" value="${valueSearch}" />
-                        <c:if test="${counter.count eq pos}">
-                            <button class="btn_paging" type="submit" value="${counter.count}" disabled="disabled">${counter.count}</button>
-                        </c:if>
-                        <c:if test="${counter.count ne pos}">
-                            <button class="btn_paging" type="submit" value="${counter.count}">${counter.count}</button>
-                        </c:if>
-                        <input type="hidden" name="btnCount" value="${counter.count}" />
-                    </form>
-                </c:forEach>
-            </div>
+                </div>
+            </c:if>
+            <c:if test="${empty sessionScope.CARLIST}">
+                <h2>
+                    No Record is matched !!!
+                </h2>
+            </c:if>
         </div>
         <br>
     </body>

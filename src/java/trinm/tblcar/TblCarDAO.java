@@ -26,9 +26,9 @@ public class TblCarDAO implements Serializable {
     public List<TblCarDTO> getCarLoad() {
         return carLoad;
     }
-    
+
     private int num = 0;
-    
+
     public int getNum() {
         return num;
     }
@@ -88,7 +88,51 @@ public class TblCarDAO implements Serializable {
             }
         }
     }
-    
+
+    private List<String> categoryLoad;
+
+    public List<String> getCategory() {
+        return categoryLoad;
+    }
+
+    public void loadCategory()
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+
+        try {
+            //1.    connect DB
+            con = DBHelper.makeConnection();
+            //2.    Create SQL String
+            if (con != null) {
+                String sql = "SELECT DISTINCT category "
+                        + "FROM tblCar";
+                //3.    Create Statement Object
+                stm = con.prepareStatement(sql);
+                //4.    Execute Query
+                rs = stm.executeQuery();
+                //5.    Process result
+                while (rs.next()) {
+                    if (this.categoryLoad == null) {
+                        this.categoryLoad = new ArrayList<>();
+                    }
+                    categoryLoad.add(rs.getString("category"));
+                }// end while
+            }//end if connection is opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+
     public void search(int count, String valueSearch)
             throws SQLException, NamingException {
         Connection con = null;
