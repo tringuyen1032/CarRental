@@ -1,0 +1,17 @@
+ =ServerStartUpServlet
+startUp=ServerStartUpServlet
+login=UserLoginServlet
+search=CarSearchServlet
+logout=UserLogoutServlet
+createRecord=AccountCreateServlet
+history=HistoryViewServlet
+verifyRecord=AccountVerifyServlet
+loadcar=CarLoadServlet
+loginPage=login.jsp
+error=error.html
+studentPage=shopping.jsp
+createNewAccountJSP=createNewAccount.jsp
+createAccount=createNewAccount.html
+historyPage=history.jsp
+verifyPage=verifyPage.html
+verifyFail=verifyFail.html
