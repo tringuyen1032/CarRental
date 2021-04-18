@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Verify Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .display{
+                margin: 0px;
+                background-color: #F5F5F5;
+            }
+
+            .display-1{
+                width: 1748px;
+                max-width: 100%;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .display-0{
+                height: 120px;
+                background-image: linear-gradient(0, #fe6433, #f53e2d);
+            }
+
+            .display-2{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .display-3{
+                list-style: none;
+                padding-left: 0%;
+                margin-top: 20px;
+            }
+
+            .display-4{
+                display: inline-block;
+                font-size: 25px;
+                color: white;
+                text-decoration: none;
+                width: 200px;
+            }
+
+            .login_title{
+                margin: auto;
+                padding-top: 24px;
+                color: white;
+                font-size: 32px;
+            }
+
+            .display-4{
+                display: inline-block;
+                font-size: 25px;
+                color: white;
+                text-decoration: none;
+            }
+
+            .form{
+                margin-top: 200px;
+            }
+
+            .login_form{
+                text-align: center;
+                font-size: 20px;
+                width: 500px;
+                margin: auto;
+                border-top: 8px solid #fe6433;
+                border-bottom: 8px solid #fe6433;
+                background-color: white
+            }
+            .txt_user{
+                width:300px;
+                height:35px;
+                margin-top:10px;
+                margin-left: 20px;
+            }
+
+            .btn_create{
+                width:250px;
+                height:40px;
+                margin-right:10px;
+                margin-top:10px;
+                background-color: #fe6433;
+                color: white;
+                font-size:20px;
+                border: none;
+                outline: none;
+            }
+            
+            .btn{
+                text-align: center;
+                margin-top: 30px;
+            }
+        </style>
+    </head>
+    <body class="display">
+        <div class="display-0">
+            <header class="display-1">
+                <nav class="display-2">
+                    <div class="display-3">
+                        <form action="loginPage" method="POST">
+                            <a class="display-4" href="startUp">Back to login page</a>
+                        </form>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <h1 class="login_title">Verify Page</h1>
+                    </div>
+                    <div><a class="display-4"></a></div>
+                </nav>
+            </header>
+        </div> 
+        <div class="form">
+            <div class="login_form">
+                <form action="verifyRecord" method="POST">
+                    <br>
+                    Enter the Verify Code: <br>
+                    <input type="text" name="txtCode" class="txt_user"/>
+                    <div class="btn">
+                        <input class="btn_create" type="submit" value="Submit" />
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
