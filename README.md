@@ -1,5 +1,5 @@
+[![Build Status](https://api.travis-ci.org/sananand007/genTspsolver.png?branch=master)](https://travis-ci.org/sananand007/genTspsolver)
 ### Hi there 👋
-[![Build Status](https://travis-ci.com/tringuyen1032/tringuyen1032.svg?branch=master)](https://travis-ci.com/tringuyen1032/tringuyen1032)
 <!--
 **tringuyen1032/tringuyen1032** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
