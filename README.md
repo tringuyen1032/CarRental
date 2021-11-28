@@ -1,4 +1,4 @@
-<p align="center"> <h1 align="center"> Nguyen Minh Tri </h1> </p>
+<h2> Hi, I'm Thai Braga! <img src="https://media.giphy.com/media/mGcNjsfWAjY5AEZNw6/giphy.gif" width="50"></h2>
 <p align="center">
 <a href="https://github.com/tringuyen1032" target="_blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" alt="Nguyen Minh Tri" height="20" width="20" /></a>
 <a href="https://twitter.com/trinmse140981" target="_blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="Nguyen Minh Tri" height="20" width="20" /></a>
