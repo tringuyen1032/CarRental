@@ -12,9 +12,9 @@
 </em>
 </p>
 
-[![Twitter: ThaiiBraga](https://img.shields.io/twitter/follow/ThaiiBraga?style=social)](https://twitter.com/ThaiiBraga)
-[![Linkedin: thaianebraga](https://img.shields.io/badge/-thaianebraga-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/thaianebraga/)](https://www.linkedin.com/in/thaianebraga/)
-[![GitHub Thaiane](https://img.shields.io/github/followers/thaiane?label=follow&style=social)](https://github.com/Thaiane)
+[![Twitter: trinmse140981](https://img.shields.io/twitter/follow/trinmse140981?style=social)](https://twitter.com/trinmse140981)
+<!-- [![Linkedin: thaianebraga](https://img.shields.io/badge/-thaianebraga-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/thaianebraga/)](https://www.linkedin.com/in/thaianebraga/) -->
+[![GitHub tringuyen1032](https://img.shields.io/github/followers/tringuyen1032?label=follow&style=social)](https://github.com/tringuyen1032)
 
 I'm a Front-end Developer who is passionate about making open-source projects, creating technology to elevate people, and building community.
 
