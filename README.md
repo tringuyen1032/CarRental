@@ -40,7 +40,7 @@
 
 I'm a Front-end Developer who is passionate about making open-source projects, creating technology to elevate people, and building community.
 
-🔭 I’m currently working on opensource project [Pimo](https://pimo.studio/)
+🔭 I’m currently working on project [Pimo](https://pimo.studio/)
 
 👯 I’m looking to collaborate on ReactJS projects.
 
