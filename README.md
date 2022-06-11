@@ -48,7 +48,8 @@ I'm a Front-end Developer who is passionate about making open-source projects, c
 
 📫 How to reach me:
 
-`Website` - [trinm.engineer](https://www.trinm.engineer/)
+`Website` : [trinm.engineer](https://www.trinm.engineer/)
+`Email` : [trinm.dev](mailto:trinm.dev.1112@icloud.com)
 
 ❤️ Support my open source projects:
 
