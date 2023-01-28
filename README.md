@@ -5,7 +5,7 @@
 <!-- <a href="https://elangovan.in" target="_blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/blogger.svg" alt="Elangovan Sundar" height="20" width="20" /></a> -->
 <!-- </p> -->
 
-<img align='right' src="https://media0.giphy.com/media/ndM7oIOjaDQOhMKtF3/giphy.gif?cid=ecf05e47lmh8i1j6df89dko1m1ncr5ump4hlbx0koeob5ssf&rid=giphy.gif&ct=g" width="230">
+<!-- <img align='right' src="https://media0.giphy.com/media/ndM7oIOjaDQOhMKtF3/giphy.gif?cid=ecf05e47lmh8i1j6df89dko1m1ncr5ump4hlbx0koeob5ssf&rid=giphy.gif&ct=g" width="230"> -->
 <p><em>Software Enginner at <a href="https://daihoc.fpt.edu.vn/">FPT University</a><img src="https://media.giphy.com/media/fYSnHlufseco8Fh93Z/giphy.gif" width="30">
 </br>
 <!-- Developer Consultant at <a href="https://www.thoughtworks.com">ThoughtWorks</a><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30">  -->
